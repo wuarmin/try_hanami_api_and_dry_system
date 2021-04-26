@@ -10,8 +10,11 @@ gem "sequel", "~> 5.32.0"
 gem "sequel-seed", "~> 1.1.2"
 gem "rake", "~> 13.0.1"
 
-group :test, :development do
+group :development do
   gem "shotgun"
+end
+
+group :test, :development do
   gem "awesome_print"
   gem "rspec"
 end

@@ -40,6 +40,16 @@ services:
       database:
         condition: service_healthy
 
+  test_runner: 
+    <<: *backend
+    command: /bin/bash
+    environment:
+      <<: *env
+      RACK_ENV: test
+    depends_on:
+      test_database:
+        condition: service_healthy
+
   api:
     <<: *backend
     command: bundle exec shotgun --host 0.0.0.0 --port 3200
@@ -63,6 +73,20 @@ services:
       test: pg_isready -U postgres -h 127.0.0.1
       interval: 5s
 
+  test_database:
+    image: postgres:13.0
+    volumes:
+      - postgres_ap_test_db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: api_user
+      POSTGRES_PASSWORD: api_password
+      POSTGRES_DB: api_test_db
+    ports:
+      - 7432:5432
+    healthcheck:
+      test: pg_isready -U postgres -h 127.0.0.1
+      interval: 5s
 volumes:
   postgres:
+  postgres_ap_test_db:
   bundle:

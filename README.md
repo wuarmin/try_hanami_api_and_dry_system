@@ -18,4 +18,6 @@ $ docker-compose build
 $ docker-compose run test_runner ./bin/setup
 ```
 Run test suite
-WIP
+```sh
+$ docker-compose run test_runner bundle exec rspec spec
+```

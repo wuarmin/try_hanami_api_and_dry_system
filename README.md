@@ -1,4 +1,4 @@
-# Airports API
+# Example API
 
 ### Development
 Run the following commands to prepare your API Development Environment:

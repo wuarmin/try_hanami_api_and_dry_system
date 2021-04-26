@@ -1,4 +1,4 @@
-require "controllers/env" # Question: How can controllers/env auto-required?
+require "controllers/env" # Question: How I could achive auto-requiring of "controllers/env"?
 
 describe Controllers::Env do
   it "is successful" do

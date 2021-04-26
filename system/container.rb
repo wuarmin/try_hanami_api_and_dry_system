@@ -8,7 +8,10 @@ class App < Dry::System::Container
   configure do |config|
     config.root = File.expand_path("../app", __dir__)
     config.component_dirs.add "main"
-    config.component_dirs.add "lib"
+    config.component_dirs.add "lib" do |dir|
+      dir.add_to_load_path = true # defaults to true
+      dir.auto_register = true # defaults to true
+    end
     config.bootable_dirs = ["/app/system/boot"]
   end
 end

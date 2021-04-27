@@ -12,7 +12,7 @@ $ docker-compose up --build api
 ```
 
 ### Testing
-Run the following commands to prepare your Airports API Test Environment:
+Run the following commands to prepare your Example API Test Environment:
 ```sh
 $ docker-compose build
 $ docker-compose run test_runner ./bin/setup

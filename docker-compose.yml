@@ -46,6 +46,8 @@ services:
     environment:
       <<: *env
       RACK_ENV: test
+    env_file:
+      - .env.test
     depends_on:
       test_database:
         condition: service_healthy

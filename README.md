@@ -15,7 +15,7 @@ $ docker-compose up --build api
 Run the following commands to prepare your Example API Test Environment:
 ```sh
 $ docker-compose build
-$ docker-compose run test_runner ./bin/setup
+$ docker-compose run test_runner ./bin/setup.rb
 ```
 Run test suite
 ```sh

@@ -15,9 +15,13 @@ class App < Dry::System::Container
 
     config.component_dirs.add "lib" do |dir|
       dir.add_to_load_path = true # defaults to true
-      dir.auto_register = true # defaults to true
+      dir.auto_register = proc do |component|
+        !component.identifier.start_with?("orm")
+      end
     end
 
     config.bootable_dirs = [File.expand_path("./boot", __dir__)]
   end
 end
+
+require_relative "./import"

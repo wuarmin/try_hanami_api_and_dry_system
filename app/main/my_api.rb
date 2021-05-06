@@ -4,5 +4,5 @@ class MyApi < Hanami::API
   end
 
   get "/env", to: App["controllers.env"]
-  get "/user/:id", to: App["controllers.show_user"]
+  get "/users/:id", to: App["controllers.show_user"]
 end
